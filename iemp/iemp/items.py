@@ -6,8 +6,6 @@
 # http://doc.scrapy.org/en/latest/topics/items.html
 
 import scrapy
-
-
 class IempItem(scrapy.Item):
     zwmc = scrapy.Field()
     gsmc = scrapy.Field()

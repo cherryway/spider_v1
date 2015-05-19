@@ -1,9 +1,11 @@
 #coding=utf8
 from scrapy.selector import Selector
 from bs4 import BeautifulSoup
-
-__author__ = 'cdchwei'
+from iemp.items import *
 import scrapy
+
+__author__ = 'cdchwei'import scrapy
+
 
 class IempSpider(scrapy.spider.Spider):
     name = "iemp"
