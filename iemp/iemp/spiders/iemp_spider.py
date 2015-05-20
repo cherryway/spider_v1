@@ -1,10 +1,11 @@
-#coding=utf8
+# -*- coding: utf-8 -*-
 from scrapy.selector import Selector
 from bs4 import BeautifulSoup
 from iemp.items import *
 import scrapy
 
-__author__ = 'cdchwei'import scrapy
+__author__ = 'cdchwei'
+import scrapy
 
 
 class IempSpider(scrapy.spider.Spider):
@@ -30,7 +31,7 @@ class IempSpider(scrapy.spider.Spider):
                 gxsj=info.find_all('td',class_="gxsj")[0].span.string
                 jds=detail.find_all('li',class_='newlist_deatil_two')[0].find_all("span")
                 jds2=detail.find_all('li',class_='newlist_deatil_last')[0].string
-                #print zwmc,gsmc,zwyx,gzdd,gxsj,jds.__len__(),jds[0].string,jds[1].string,jds[2].string,jds2
+                print zwmc,gsmc,zwyx,gzdd,gxsj,jds.__len__(),jds[0].string,jds[1].string,jds[2].string,jds2
                 jobItem=IempItem()
                 jobItem['zwmc']=zwmc;
 
