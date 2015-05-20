@@ -2,7 +2,7 @@
 __author__ = 'JM'
 from bs4 import BeautifulSoup;
 if __name__ == '__main__':
-    jobs=open('../iemp/jobs')
+    jobs=open('../iemp/job.txt')
     text=jobs.read()
     jobs.close();
     soup=BeautifulSoup(text);
@@ -24,8 +24,17 @@ if __name__ == '__main__':
             print i,zwmc,gsmc,zwyx,gzdd,gxsj,jds[0].string,jds[1].string,jds[2].string,jds[3].string,jds.__len__(),jds2,'#'
             i=i+1
     next_page=soup.find_all('li',class_='pagesDown-pos')
-    if next_page.__len__()==1:
+    print  next_page.__len__()
+    if next_page.__len__()>0:
         url=next_page[0].a['href']
         print url;
+        regex = url.compile(
+        r'^(?:http|ftp)s?://' # http:// or https://
+        r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|' #domain...
+        r'localhost|' #localhost...
+        r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})' # ...or ip
+        r'(?::\d+)?' # optional port
+        r'(?:/?|[/?]\S+)$', url.IGNORECASE)
+        print regex
     #print divs.encode('gbk')
     #print text;
