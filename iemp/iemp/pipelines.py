@@ -8,7 +8,9 @@
 import json
 import codecs
 
+
 class IempPipeline(object):
+
     def __init__(self):
         self.file = codecs.open('zhaopin.json', 'wb', encoding='utf-8')
 
