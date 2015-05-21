@@ -2,6 +2,7 @@
 from scrapy.selector import Selector
 from bs4 import BeautifulSoup;
 from iemp.items import IempItem;
+from iemp.url_loading import tools;
 import scrapy
 __author__ = 'cdchwei'
 
@@ -9,9 +10,7 @@ __author__ = 'cdchwei'
 class IempSpider(scrapy.spider.Spider):
     name = "iemp"
     allowed_domains = ["zhaopin.com"]
-    start_urls = [
-        "http://www.zhaopin.com"
-    ]
+    start_urls = tools().loadurls();
     def parse(self, response):
         page=IempItem();
         page["url"] = response.url;
