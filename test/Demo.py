@@ -1,6 +1,10 @@
 #coding=utf8
 __author__ = 'JM'
 from bs4 import BeautifulSoup;
+def twice(x):
+    return (x,2*x,3*x);
+
+
 if __name__ == '__main__':
     jobs=open('../iemp/job.txt')
     text=jobs.read()
