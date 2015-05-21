@@ -12,12 +12,19 @@ from scrapy import signals;
 class IempPipeline(object):
 
     def __init__(self):
-        self.file = codecs.open('zhaopin.json', 'wb', encoding='utf-8')
+        self.file = codecs.open('zhaopin.txt', 'wb')
+        self.file2 = codecs.open('zhaopinsearch.txt', 'wb')
 
     def process_item(self, item, spider):
-        line = json.dumps(dict(item), ensure_ascii=False) + "\n"
-        self.file.write(line)
+        #self.file = codecs.open('zhaopin.json', 'a', encoding='utf-8')
+        #line = json.dumps(dict(item), ensure_ascii=False) + "\n"
+        if item["url"].find('sou.zhaopin.com')<>-1:
+            self.file2.write(item["url"]+"\u003"+item["html_body"]+"\n")
+        else:
+            self.file.write(item["url"]+"\u003"+item["html_body"]+"\n")
+        #self.file.close()
         return item
 
     def spider_closed(self, spider):
         self.file.close()
+        self.file2.close();

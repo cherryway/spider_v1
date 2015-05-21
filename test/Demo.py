@@ -1,8 +1,9 @@
 #coding=utf8
 __author__ = 'JM'
 from bs4 import BeautifulSoup;
+import urllib2
 if __name__ == '__main__':
-    jobs=open('../iemp/job.txt')
+    jobs=open('../iemp/zhaopin.txt')
     text=jobs.read()
     jobs.close();
     soup=BeautifulSoup(text);
