@@ -7,7 +7,7 @@
 
 import json
 import codecs
-
+from scrapy import signals;
 
 class IempPipeline(object):
 
