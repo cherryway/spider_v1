@@ -13,5 +13,9 @@ BOT_NAME = 'iemp'
 SPIDER_MODULES = ['iemp.spiders']
 NEWSPIDER_MODULE = 'iemp.spiders'
 
+ITEM_PIPELINES = {
+    'iemp.pipelines.IempPipeline': 100,
+    }
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'iemp (+http://www.yourdomain.com)'
