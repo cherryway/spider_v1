@@ -2,8 +2,8 @@
 __author__ = 'JM'
 from bs4 import BeautifulSoup;
 class SeachParser:
-    def parse(self, response):
-        soup=BeautifulSoup(response.body);
+    def parse(self, content):
+        soup=BeautifulSoup(content);
         divs=soup.find_all('div',class_='newlist_list_content')[0];
         jobs=[];
         for row in divs.find_all('table'):
