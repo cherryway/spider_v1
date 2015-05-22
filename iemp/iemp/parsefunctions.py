@@ -7,5 +7,7 @@ def parseLinks(page):
     for link in links:
         lk.append(link.get('href'))
     return lk;
+
 def parseJobs(page):
     soup=BeautifulSoup(page.replace('\u001\u002\u003','\n'));
+

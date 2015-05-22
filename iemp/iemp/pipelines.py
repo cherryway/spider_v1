@@ -19,9 +19,9 @@ class IempPipeline(object):
         #self.file = codecs.open('zhaopin.json', 'a', encoding='utf-8')
         #line = json.dumps(dict(item), ensure_ascii=False) + "\n"
         if item["url"].find('sou.zhaopin.com')<>-1:
-            self.file2.write(item["url"]+"\u003"+item["html_body"]+"\n")
+            self.file2.write(item["url"]+"\u004"+item["html_body"]+"\n")
         else:
-            self.file.write(item["url"]+"\u003"+item["html_body"]+"\n")
+            self.file.write(item["url"]+"\u004"+item["html_body"]+"\n")
         #self.file.close()
         return item
 

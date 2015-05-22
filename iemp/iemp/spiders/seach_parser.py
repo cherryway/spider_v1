@@ -2,7 +2,7 @@
 __author__ = 'JM'
 from bs4 import BeautifulSoup;
 class SeachParser:
-    def parse(self, content):
+    def search_parser(self, content):
         soup=BeautifulSoup(content);
         divs=soup.find_all('div',class_='newlist_list_content')[0];
         jobs=[];
@@ -24,3 +24,7 @@ class SeachParser:
                 job=(zwmc,gsmc,zwyx,gzdd,gxsj,company_desc);
                 jobs.append(job);
         return jobs;
+    def company_parser(self, content):
+        return 1;
+    def jd_parse(self,content):
+        return 1;
