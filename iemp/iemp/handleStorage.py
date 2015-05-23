@@ -6,7 +6,7 @@ class handle:
         print key,content;
     @staticmethod
     def hash_save(key,content,pre='',partion_num=10):
-        open(pre+'.'+str(tools.getPartitions(key,partion_num)),'a').write(content);
+        open(pre+'.'+str(tools.getPartitions(key,partion_num)),'a').write(content+"\n");
     @staticmethod
     def hdfs_save(key,content,hdfs,pre='',):
         pass;

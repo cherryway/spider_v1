@@ -36,6 +36,7 @@ def parseJobs(page):
         job_items.append((key, value));
         print key, value
 
+
 if __name__ == '__main__':
     job_page = re.compile('http://jobs.zhaopin.com/([0-9]*).htm*')
     result = job_page.match('http://jobs.zhaopin.com/674881428250028.htm?ssidkey=y&ss=201&ff=03')
