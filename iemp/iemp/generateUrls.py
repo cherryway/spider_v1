@@ -52,4 +52,4 @@ class searchUrl:
     def get_urls(self):
         return self.url;
 if __name__ == '__main__':
-    print searchUrl(work_area=['北京','上海'],days=7).get_urls()
+     open("../jobs.urls",'a').write("\n"+searchUrl(work_area=['北京','上海'],days=7).get_urls())

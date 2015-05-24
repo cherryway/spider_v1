@@ -39,7 +39,7 @@ class IempSpider(scrapy.spider.Spider):
     def parse_singe_page(self,response):
         page=IempItem();
         page["url"] = response.url;
-        page["html_body"] = response.body.replace('\n',"\001").replace("\r","")
+        page["html_body"] = response.body.replace('\n',"\001\002").replace('\r','').replace("","\003")
         return page;
 
 
