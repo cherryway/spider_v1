@@ -1,7 +1,8 @@
+# coding=utf-8
 __author__ = 'cdchwei'
+# spark 环境解析职位基本信息测试
 from bs4 import BeautifulSoup;
 import sys
-
 from pyspark import SparkContext
 from pyspark import SparkConf;
 import pymongo
@@ -19,7 +20,7 @@ def parseJobs(page):
         label.append(l.string);
     job_item=soup.find_all('ul',class_='terminal-ul clearfix')[0].getText();
     jd=soup.find_all('div','tab-inner-cont')[0].getText();
-    #print job_name,company_url,label,job_item,jd
+    # print job_name,company_url,label,job_item,jd
     return {'job_name':job_name,'company_url': company_url ,'label':label,'job_item':job_item,'jd':jd};
 
 if __name__ == '__main__':
