@@ -1,3 +1,4 @@
+# encoding=utf8
 # -*- coding: utf-8 -*-
 
 # Scrapy settings for iemp project

@@ -6,10 +6,10 @@ import urllib2;
 class parser:
     @staticmethod
     def parseJobs(page):
-        url=page.split("\002\001")[0];
-        content=page.split("\002\001")[1];
+        url=page.split("\t")[0];
+        content=page.split("\t")[1];
         print url,content
-        soup=BeautifulSoup(content.replace('\001\002','\n'));
+        soup=BeautifulSoup(content.replace('$','\n'));
         job_labels=soup.find_all('div',class_='inner-left fl')[0];
         job_name = job_labels.h1.string;
         company_url = job_labels.h2.a.get('href');

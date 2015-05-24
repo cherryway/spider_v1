@@ -1,3 +1,4 @@
+# encoding=utf8
 # -*- coding: utf-8 -*-
 
 # Define your item pipelines here
@@ -19,7 +20,7 @@ class IempPipeline(object):
 
     def process_item(self, item, spider):
         up=urlparse(item['url'])
-        handle.hash_save(item['url'], item['url']+'\002\001'+item['html_body'], up.hostname);
+        handle.hash_save(item['url'], item['url']+'\t'+item['html_body'], up.hostname);
         handle.mongo_save(item['url'],item,[])
         return item
 

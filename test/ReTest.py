@@ -4,6 +4,7 @@ __author__ = 'cdchwei'
 import re;
 from bs4 import BeautifulSoup;
 import urllib2;
+from urlparse import urlparse;
 
 
 def parseJobs(page):
@@ -46,6 +47,6 @@ if __name__ == '__main__':
     print re.search(job_patten, 'http://jobs.zhaopin.com/674881428250028.htm?ssidkey=y&ss=201&ff=03').group(1)
     print re.search(company_patten, 'http://company.zhaopin.com/CC674881428.htm').group(1);
     parseJobs(urllib2.urlopen("http://jobs.zhaopin.com/674881428250028.htm").read())
-
+    print "#",urlparse("http://jobs.zhaopin.com/674881428250028.htm?ssidkey=y&ss=201&ff=03").params("ssidkey")
 
 

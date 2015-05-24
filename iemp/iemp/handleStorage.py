@@ -1,6 +1,7 @@
+# encoding=utf8
 __author__ = 'cdchwei'
 from iemp.tools import tools;
-import pymongo;
+#import pymongo;
 import json
 class handle:
     @staticmethod
@@ -17,10 +18,10 @@ class handle:
         pass;
     @staticmethod
     def mongo_save(key,content,momgo,pre=''):
-        conn = pymongo.Connection("127.0.0.1",27017);
-        db = conn.test;
-        tabs=pre+'.'+str(tools.getPartitions(key,10));
-        db.demo.save(json.dumps(dict(content)))
+        #conn = pymongo.Connection("127.0.0.1",27017);
+        #db = conn.test;
+        #tabs=pre+'.'+str(tools.getPartitions(key,10));
+        #db.demo.save(json.dumps(dict(content)))
         pass
     @staticmethod
     def kafka_save(key,content,kafka,pre=''):
