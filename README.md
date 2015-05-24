@@ -14,6 +14,7 @@ pyspark 解析职位页面已经完成，初步测试正常！
 
 北京地区最近7日发布的全职岗位
 scrapy crawl iemp -a pd=7 -a=et=2 -a jl=北京
+参数可以0个或者多个
 
 
 
