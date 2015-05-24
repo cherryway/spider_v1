@@ -1,6 +1,8 @@
 # encoding=utf8
 __author__ = 'cdchwei'
 from iemp.tools import tools;
+from kazoo.client import KazooClient
+from samsa.cluster import Cluster
 #import pymongo;
 import json
 class handle:
@@ -25,4 +27,9 @@ class handle:
         pass
     @staticmethod
     def kafka_save(key,content,kafka,pre=''):
+        zookeeper = KazooClient()
+        zookeeper.start()
+        cluster = Cluster(zookeeper)
+        topic = cluster.topics['topicname']
+        topic.publish('msg')
         pass
