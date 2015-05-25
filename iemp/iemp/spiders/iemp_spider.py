@@ -26,9 +26,11 @@ class IempSpider(scrapy.spider.Spider):
         if et !=None:
             base_url=base_url+"&et="+et;
         self.start_urls = [base_url]
-
+        if(pd==None and jl==None and et==None) :
+            start_urls = tools.loadurls();
     def parse(self, response):
         print response.url;
+        currnent_host=urlparse(response.url).hostname
         current_url=response.url;
         current_page_number=re.search('http*p=([0-9]+)\w*',current_url);
         cpn=1;
@@ -42,6 +44,8 @@ class IempSpider(scrapy.spider.Spider):
             try:
                 if (None<>sub_url)&(sub_url.__str__().lower().startswith("http")):
                        link_set.add(sub_url)
+                elif(sub_url.__str__().lower().startswith("/")):
+                    link_set.add('http://'+currnent_host+sub_url)
             except Exception as e:
                 print e;
         for p in link_set:
@@ -49,8 +53,9 @@ class IempSpider(scrapy.spider.Spider):
             if(hostname=='company.zhaopin.com' or hostname=='special.zhaopin.com' or IempSpider.is_jd_page(p)):
                 yield scrapy.Request(p, callback=self.parse_singe_page)
             elif (hostname == 'sou.zhaopin.com'):
-                if(re.search('http*p=([0-9]+)\w*',current_url),p)!=None:
-                    yield scrapy.Request(p, callback=self.parse);
+                print p;
+                #if(re.search('http*p=([0-9]+)\w*',p))!=None:
+                yield scrapy.Request(p, callback=self.parse);
             else:
                 pass;
     @staticmethod

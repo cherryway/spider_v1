@@ -46,7 +46,9 @@ if __name__ == '__main__':
     print result.string
     print re.search(job_patten, 'http://jobs.zhaopin.com/674881428250028.htm?ssidkey=y&ss=201&ff=03').group(1)
     print re.search(company_patten, 'http://company.zhaopin.com/CC674881428.htm').group(1);
-    parseJobs(urllib2.urlopen("http://jobs.zhaopin.com/674881428250028.htm").read())
-    print "#",urlparse("http://jobs.zhaopin.com/674881428250028.htm?ssidkey=y&ss=201&ff=03").params("ssidkey")
+    #parseJobs(urllib2.urlopen("http://jobs.zhaopin.com/674881428250028.htm").read())
+    para='ff=([^&]*)*'
+    jobs='http://jobs.zhaopin.com/674881428250028.htm?ssidkey=y&ss=201&ff=03'
+    print re.search(para,jobs).group(1)
 
 
